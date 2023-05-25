@@ -12,6 +12,8 @@ const connection = mysql.createConnection({
 
 app.use(cors())
 app.use(express.json());
+app.use(express.static(__dirname + "/public"));
+
 
 
 app.get('/users', function (req, res, next) {
