@@ -42,3 +42,5 @@ app.post('/user', function (req, res, next) {
 app.listen(80, function () {
   console.log('CORS-enabled web server listening on port 80')
 })
+
+module.exports = app
