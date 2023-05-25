@@ -2,12 +2,14 @@ var express = require('express')
 var cors = require('cors')
 var app = express()
 const mysql = require('mysql2');
+require('dotenv').config()
+
 
 const connection = mysql.createConnection({
-    host: '147.50.231.19',
-    user: 'devsriwa_test',
-    password:'*Test1234*',
-    database: 'devsriwa_test'
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password:process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE
   });
 
 app.use(cors())
@@ -17,6 +19,7 @@ app.use(express.static(__dirname + "/public"));
 
 
 app.get('/users', function (req, res, next) {
+
 
     const q = "SELECT * FROM `test`"
 
